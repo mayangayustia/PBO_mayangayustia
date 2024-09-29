@@ -48,7 +48,8 @@ Class Programmer extends Employee {
     }
 
     public function getInfo() {
-        return parent::getInfo() . ", Gaji Total: " . $this->hitungBonus();
+        $this->hitungBonus();
+        return parent::getInfo();
     }
 }
 
@@ -69,7 +70,8 @@ Class Direktur extends Employee {
         $this->setGaji($gajibaru);
     }
     public function getInfo() {
-        return parent::getInfo() . ", Gaji Total: " . $this->hitungBonusDanTunjangan();
+        $this->hitungBonusDanTunjangan();
+        return parent::getInfo();
     }
 }
 
@@ -100,7 +102,8 @@ Class PegawaiMingguan extends Employee {
         }
 
     public function getInfo() { 
-        return parent::getInfo() . ", Barang Terjual: $this->penjualan, Gaji Total: " . $this->hitungGajiPegawai();
+        $this->hitungGajiPegawai();
+        return parent::getInfo() . ", Barang Terjual: $this->penjualan";
     }
 }
 
@@ -109,13 +112,13 @@ Class PegawaiMingguan extends Employee {
 
 $Programmer = new Programmer("Budi", 5000000,5); // Nama, gaji, lama kerja
 echo $Programmer->getInfo() . "\n";
-echo "Gaji setelah bonus: " . $Programmer->getGaji() . "\n";
+echo "Gaji Total: " . $Programmer->getGaji() . "\n";
 echo "<br/>";
 $Direktur = new Direktur("Andi", 10000000, 12); // Nama, gaji, lama kerja
 echo $Direktur->getInfo() . "\n";
-echo "Gaji setelah bonus dan tunjangan: " . $Direktur->getGaji() . "\n";
+echo "Gaji Total: " . $Direktur->getGaji() . "\n";
 echo "<br/>";
 $Pegawai = new PegawaiMingguan("Rani", 3000000, 3, 10000, 100, 80); // Nama, gaji, lama kerja, harga barang, stock, penjualan
 echo $Pegawai->getInfo() . "\n";
-echo "Gaji setelah bonus: " . $Pegawai->getGaji() . "\n";
+echo "Gaji Total: " . $Pegawai->getGaji() . "\n";
 ?>
