@@ -22,7 +22,7 @@ Class Employee{
     }
 
     public function getInfo() {
-        return "Nama: $this->nama, Gaji Awal: $this->gaji, Lama Kerja: $this->lamakerja tahun";
+        return "Nama: $this->nama, Gaji Awal: $this->gaji, Lama Kerja: $this->lamakerja tahun,";
     }
 }
 
