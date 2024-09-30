@@ -1,13 +1,13 @@
 <?php
+// Class Karyawan untuk menghitung gaji pokok dan lembur
 class Karyawan {
     private $nama;
     private $golongan;
     private $jamLembur;
     private $gajiPokok;
-    private $gajiLembur;
-    private $totalGaji;
+    const TARIF_LEMBUR = 15000;
  
-    // Daftar gaji pokok berdasarkan golongan
+    // Array untuk gaji pokok berdasarkan golongan
     private $gajiGolongan = [
         "Ib" => 1250000, "Ic" => 1300000, "Id" => 1350000,
         "IIa" => 2000000, "IIb" => 2100000, "IIc" => 2200000, "IId" => 2300000,
@@ -20,49 +20,69 @@ class Karyawan {
         $this->nama = $nama;
         $this->golongan = $golongan;
         $this->jamLembur = $jamLembur;
-        $this->gajiPokok = $this->getGajiPokok();
-        $this->gajiLembur = $this->hitungLembur();
-        $this->totalGaji = $this->hitungTotalGaji();
+        $this->setGajiPokok();
     }
  
-    // Destructor
-    public function __destruct() {
-        echo "Data untuk {$this->nama} telah dihapus.\n";
+    // Method untuk set gaji pokok berdasarkan golongan
+    private function setGajiPokok() {
+        if (array_key_exists($this->golongan, $this->gajiGolongan)) {
+            $this->gajiPokok = $this->gajiGolongan[$this->golongan];
+        } else {
+            echo "Golongan tidak valid.\n";
+            exit();
+        }
     }
  
     // Method untuk mendapatkan gaji pokok
     public function getGajiPokok() {
-        return $this->gajiGolongan[$this->golongan];
-    }
- 
-    // Method untuk menghitung gaji lembur
-    public function hitungLembur() {
-        return $this->jamLembur * 15000;
+        return $this->gajiPokok;
     }
  
     // Method untuk menghitung total gaji
     public function hitungTotalGaji() {
-        return $this->gajiPokok + $this->gajiLembur;
+        $gajiLembur = $this->jamLembur * self::TARIF_LEMBUR;
+        return $this->gajiPokok + $gajiLembur;
     }
  
-    // Method untuk menampilkan data
+    // Method untuk menampilkan informasi gaji karyawan
     public function tampilkanGaji() {
-        echo "{$this->nama} | Golongan: {$this->golongan} | Total Jam Lembur: {$this->jamLembur} | Total Gaji: Rp " . number_format($this->totalGaji, 2, ',', '.') . "<br>";
+        echo "Nama Karyawan : " . $this->nama . "\n";
+        echo "Golongan       : " . $this->golongan . "\n";
+        echo "Jam Lembur     : " . $this->jamLembur . " jam\n";
+        echo "Gaji Pokok     : Rp " . number_format($this->getGajiPokok(), 2, ',', '.') . "\n";
+        echo "Total Gaji     : Rp " . number_format($this->hitungTotalGaji(), 2, ',', '.') . "\n\n";
+    }
+ 
+    // Destructor untuk meng-unset objek
+    public function __destruct() {
+        echo "Data karyawan " . $this->nama . " telah diproses.\n";
     }
 }
  
-// Data Karyawan
-$karyawan = [
-    ["Winny", "IIb", 30],
-    ["Stendy", "IIIc", 32],
-    ["Alfred", "IVb", 30],
-    ["Ferdinand", "IIIc", 40]
-];
- 
-// Menampilkan Data Gaji
-foreach ($karyawan as $data) {
-    $karyawanObj = new Karyawan($data[0], $data[1], $data[2]);
-    $karyawanObj->tampilkanGaji();
+// Fungsi untuk input data dari pengguna
+function input($prompt) {
+    echo $prompt . ": ";
+    return trim(fgets(STDIN));
 }
  
+// Main program
+$jumlahKaryawan = (int) input("Masukkan jumlah karyawan");
+$karyawanList = [];
+ 
+for ($i = 0; $i < $jumlahKaryawan; $i++) {
+    echo "\nData Karyawan " . ($i + 1) . ":\n";
+    $nama = input("Masukkan nama karyawan");
+    $golongan = input("Masukkan golongan (contoh: Ib, Ic, IIa, IIIc, dll)");
+    $jamLembur = (int) input("Masukkan jumlah jam lembur");
+ 
+    // Membuat objek Karyawan
+    $karyawan = new Karyawan($nama, $golongan, $jamLembur);
+    $karyawanList[] = $karyawan;
+}
+ 
+// Menampilkan data karyawan
+echo "\n===== Laporan Gaji Karyawan =====\n";
+foreach ($karyawanList as $karyawan) {
+    $karyawan->tampilkanGaji();
+}
 ?>
