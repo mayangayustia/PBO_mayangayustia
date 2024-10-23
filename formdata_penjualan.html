@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualan Barang - Kasir Toko Butik Cantik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #009900;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: inline-block;
+            width: 200px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"], .form-group input[type="date"] {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="button"] {
+            padding: 8px 15px;
+            background-color: #009900;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="button"]:hover {
+            background-color: #007700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .footer {
+            margin-top: 20px;
+        }
+
+        .footer input[type="button"] {
+            padding: 10px 20px;
+            background-color: #009900;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .footer input[type="button"]:hover {
+            background-color: #007700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>KASIR TOKO</h1>
+        <h2>Butik Cantik</h2>
+
+        <div class="navbar">
+            <a href="#">Penjualan Baru</a>
+            <a href="#">Penjualan Nego</a>
+            <a href="#">Tampil Penjualan</a>
+        </div>
+
+        <h2>PENJUALAN BARANG</h2>
+
+        <div class="section-title">DATA TRANSAKSI</div>
+        <div class="form-group">
+            <label for="no-penjualan">No. Penjualan</label>
+            <input type="text" id="no-penjualan" value="JL00063" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="tgl-penjualan">Tgl. Penjualan</label>
+            <input type="date" id="tgl-penjualan" value="2015-07-01">
+        </div>
+
+        <div class="form-group">
+            <label for="pelanggan">Pelanggan</label>
+            <input type="text" id="pelanggan" value="Indah Indriyanna" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="keterangan">Keterangan</label>
+            <input type="text" id="keterangan" value="Penjualan Retail">
+        </div>
+
+        <div class="section-title">INPUT BARANG</div>
+        <div class="form-group">
+            <label for="barcode">Barcode / PLU</label>
+            <input type="text" id="barcode" placeholder="Masukkan kode barcode/PLU">
+            <input type="button" value="Tambah">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode</th>
+                    <th>Nama Barang</th>
+                    <th>Harga (Rp)</th>
+                    <th>Jumlah</th>
+                    <th>Sub Total (Rp)</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>B00003</td>
+                    <td>Lace Front Fitted Dress</td>
+                    <td class="right">299.000</td>
+                    <td class="right">1</td>
+                    <td class="right">294.000</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>B00006</td>
+                    <td>Panelled Shirt Dress</td>
+                    <td class="right">299.000</td>
+                    <td class="right">1</td>
+                    <td class="right">269.100</td>
+                    <td><a href="#">Delete</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="total">GRAND TOTAL BELANJA (Rp.): 2</td>
+                    <td class="right" total">553.150</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="total">UANG BAYAR (Rp.):</td>
+                    <td class="right"><input type="text" placeholder="Masukkan uang bayar"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="footer">
+            <input type="button" value="SIMPAN TRANSAKSI">
+        </div>
+    </div>
+
+</body>
+</html>

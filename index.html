@@ -1,53 +1,162 @@
 <!DOCTYPE html>
 <html lang="id">
- 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="style.css">
-</head>
- 
-<body>
-    <h1 style="color: black; font-size: 24px;">Selamat Datang di Halaman Beranda</h1>
-    <a href="about.html">Tentang Kami</a>
-    <button onclick="bukaBukuTamu()">Buka Buku Tamu</button>
- 
-    <table id="tabelBukuTamu" border="1">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Pesan</th>
-            </tr>
-        </thead>
-        <tbody>
-           
-        </tbody>
-    </table>
- 
-    <script>
-        function bukaBukuTamu() {
-            var nama = prompt("Masukkan Nama Anda:");
-            var email = prompt("Masukkan Email Anda:");
-            var pesan = prompt("Masukkan Pesan Anda:");
- 
-            console.log("Nama: " + nama);
-            console.log("Email: " + email);
-            console.log("Pesan: " + pesan);
- 
-            var table = document.getElementById("tabelBukuTamu").getElementsByTagName('tbody')[0];
-            var newRow = table.insertRow();
- 
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var cell3 = newRow.insertCell(2);
- 
-            cell1.textContent = nama;
-            cell2.textContent = email;
-            cell3.textContent = pesan;
+    <title>WEB TOKO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
+
+        .wadah {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #009900;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #33cc33;
+        }
+
+        .form-login {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .form-login label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-login input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-login select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .form-login button {
+            background-color: #33cc33;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-login button:hover {
+            background-color: #28a745;
+        }
+
+        .tautan-login {
+            text-align: left;
+        }
+
+        .tautan-login a {
+            color: #009900;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .tautan-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="wadah">
+        <div class="logo">
+            <img src="images/logopos.png" height="100px"></img>
+        </div>
+        <h1>KASIR TOKO</h1>
+        <h2>Butik Cantik</h2>
+
+        <div class="tautan-login">
+            <a href="#">Login</a>
+        </div>
+
+        <div class="form-login">
+            <form action="proses_login.php" method="POST">
+                <h3>LOGIN KASIR</h3>
+                <label for="username">Nama Pengguna:</label>
+                <input type="text" id="username" name="username">
+
+                <label for="password">Kata Sandi:</label>
+                <input type="password" id="password" name="password">
+
+                <label for="level">Level:</label>
+                <select id="level" name="level">
+                    <option value="admin">Admin</option>
+                    <option value="kasir">Kasir</option>
+                </select>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var level = document.getElementById('level').value;
+
+            // Kata sandi khusus untuk admin dan kasir
+            var adminPassword = 'admin123';
+            var kasirPassword = 'kasir123';
+
+            // Validasi kata sandi berdasarkan level yang dipilih
+            if (level === 'admin' && password === adminPassword) {
+                // Jika login admin berhasil, arahkan ke halaman home
+                window.location.href = 'home.html';
+            } else if (level === 'kasir' && password === kasirPassword) {
+                // Jika login kasir berhasil, arahkan ke halaman home
+                window.location.href = 'home.html';
+            } else {
+                alert('Nama pengguna atau kata sandi salah!');
+            }
+        });
     </script>
 </body>
- 
 </html>

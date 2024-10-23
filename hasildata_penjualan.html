@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Barang - Kasir Toko Butik Cantik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #009900;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            float: left;
+            width: 20%;
+            background-color: #333;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            float: right;
+            width: 75%;
+        }
+
+        .add-data {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .add-data a {
+            text-decoration: none;
+            color: #009900;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .tools a {
+            margin-right: 10px;
+            color: blue;
+            text-decoration: none;
+        }
+
+        .tools a:hover {
+            text-decoration: underline;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container clearfix">
+        <div class="sidebar">
+            <a href="#">Home</a>
+            <a href="#">Data Kasir</a>
+            <a href="#">Data Supplier</a>
+            <a href="#">Data Merek</a>
+            <a href="#">Data Kategori</a>
+            <a href="#">Data Barang</a>
+            <a href="#">Pembelian Barang</a>
+            <a href="#">Retur Pembelian</a>
+            <a href="#">Penjualan Ritel</a>
+            <a href="#">Laporan</a>
+            <a href="#">Logout</a>
+        </div>
+
+        <div class="main-content">
+            <h2>DATA BARANG</h2>
+
+            <div class="add-data">
+                <a href="#">+ Add Data</a>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kode</th>
+                        <th>Nama Barang</th>
+                        <th>Stok</th>
+                        <th>Satuan</th>
+                        <th>H Modal (Rp)</th>
+                        <th>H Jual (Rp)</th>
+                        <th>Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>B00001</td>
+                        <td>ENFOCUS Dress Valon Black</td>
+                        <td>18</td>
+                        <td>Pcs</td>
+                        <td>160.000</td>
+                        <td>189.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>B00002</td>
+                        <td>ENFOCUS Dress Valon Navy</td>
+                        <td>19</td>
+                        <td>Pcs</td>
+                        <td>160.000</td>
+                        <td>189.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>B00003</td>
+                        <td>Lace Front Fitted Dress</td>
+                        <td>19</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>B00004</td>
+                        <td>Cut In Sleek Dress</td>
+                        <td>13</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>B00005</td>
+                        <td>Embroidered Cut Out Dress</td>
+                        <td>9</td>
+                        <td>Pcs</td>
+                        <td>290.000</td>
+                        <td>349.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>B00006</td>
+                        <td>Panelled Shirt Dress</td>
+                        <td>9</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>B00007</td>
+                        <td>Bandeau Bodycon Tank Dress</td>
+                        <td>19</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>B00008</td>
+                        <td>Sheer Panel Kimono Sleeve Dress</td>
+                        <td>13</td>
+                        <td>Pcs</td>
+                        <td>290.000</td>
+                        <td>349.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>B00009</td>
+                        <td>Cracked Printed Dress</td>
+                        <td>10</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>B00010</td>
+                        <td>Mesh Insert Skater Dress</td>
+                        <td>15</td>
+                        <td>Pcs</td>
+                        <td>250.000</td>
+                        <td>299.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>B00011</td>
+                        <td>Varsity Contrast Fitted Dress Mint</td>
+                        <td>15</td>
+                        <td>Pcs</td>
+                        <td>205.000</td>
+                        <td>246.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>B00012</td>
+                        <td>Varsity Contrast Fitted Dress Black</td>
+                        <td>15</td>
+                        <td>Pcs</td>
+                        <td>205.000</td>
+                        <td>246.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>B00013</td>
+                        <td>Off Shoulder Fit And Flare Dress Blue</td>
+                        <td>18</td>
+                        <td>Pcs</td>
+                        <td>290.000</td>
+                        <td>349.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>B00014</td>
+                        <td>Off Shoulder Fit And Flare Dress Grey</td>
+                        <td>18</td>
+                        <td>Pcs</td>
+                        <td>290.000</td>
+                        <td>349.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>B00015</td>
+                        <td>Wrap Detail Shift Dress Black</td>
+                        <td>14</td>
+                        <td>Pcs</td>
+                        <td>375.000</td>
+                        <td>449.000</td>
+                        <td class="tools"><a href="#">Edit</a><a href="#">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
